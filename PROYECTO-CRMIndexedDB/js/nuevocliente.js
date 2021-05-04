@@ -14,6 +14,17 @@
         formulario.addEventListener('submit', validarCliente);
     });
 
+    function conectarDB(){
+        const abrirConexion = window.indexedDB.open('crm',1);
+
+        abrirConexion.onerror =function(){
+             console.log('Hubo un error');
+        }
+
+        abrirConexion.onsuccess =function(){
+            DB= abrirConexion.result;
+        }
+    }
 
     // validar si todos los campos estan llenos
     function validarCliente(e) {

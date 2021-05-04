@@ -2,12 +2,10 @@
 
     let DB;
 
-
     const listadoClientes = document.querySelector('#listado-clientes');
 
     document.addEventListener('DOMContentLoaded', () => {
         crearDB();
-
 
         if (window.indexedDB.open('crm', 1)) {
             obtenerClientes();
@@ -15,14 +13,11 @@
 
         listadoClientes.addEventListener('click', eliminarRegistro);
 
-
-
     });
 
     function eliminarRegistro(e) {
         if (e.target.classList.contains('eliminar')) {
             const idEliminar = Number(e.target.dataset.cliente);
-
 
             const confirmar = confirm('Deseas eliminar este cliente');
             if (confirmar) {
